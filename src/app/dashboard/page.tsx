@@ -31,7 +31,11 @@ const DashboardPage = (props: Props) => {
      <div className="h-8"></div>
      <Separator/>
      <div className="h-8"></div>
-
+      {/* list all the notes in this*/}
+      {/* ToDo conditionally rendered*/}
+      <div className="text-center">
+        <h2 className="text-xl text-gray-500">You have no notes yet.</h2>
+      </div>
     </div>
     </>
   )
