@@ -25,7 +25,8 @@ const CreateNoteDialog = (props: Props) => {
             </DialogDescription>
            </DialogHeader>
            <form>
-            <Input value={input}
+            <Input 
+              value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Name..." 
              />
