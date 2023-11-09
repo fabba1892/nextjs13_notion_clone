@@ -5,13 +5,16 @@ const config = new Configuration({
 })
 
 const openai = new OpenAIApi(config);
+
 export async function generateImagePrompt(name:string) {
     try {
         const response = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
-            messages: [{
+            messages: [
+            {
                 role: 'system',
-                content: 'You are a creative an dhelpful AI assistant capable of generating interesting thumbnail descriptions for my notes. Your output will be fed into the DALLE API to generate a thumbnail. The description should be minimalistic and flat styled',
+                content: 
+                    'You are a creative an dhelpful AI assistant capable of generating interesting thumbnail descriptions for my notes. Your output will be fed into the DALLE API to generate a thumbnail. The description should be minimalistic and flat styled',
             },
             {
                 role: 'user',
@@ -19,8 +22,13 @@ export async function generateImagePrompt(name:string) {
             },
            ],
         });
-    } catch (error) {
+        const data = await response.json();
+        const image_description = data.choices[0].message.content
+        return image_description as string
         
+    } catch (error) {
+        console.log(error);
+        throw error
     }
 }
 
