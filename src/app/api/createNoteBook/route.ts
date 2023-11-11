@@ -15,3 +15,12 @@ export async function POST(req: Request) {
     console.log({image_description});
     return new NextResponse('ok');
 }
+
+
+
+
+
+
+
+
+
